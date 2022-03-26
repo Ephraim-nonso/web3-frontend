@@ -1,5 +1,4 @@
 import clsx from "clsx";
-import { utils } from "ethers";
 import React from "react";
 import Card from "./Card/Card";
 import Styles from "./MyStake.module.css";
@@ -74,28 +73,25 @@ const MyStake = ({
           <form onSubmit={onCheckDetails} className={Styles.form}>
             <input
               type="text"
-              placeholder="Check balance"
+              placeholder="Enter address"
               className={Styles.input}
               value={checkBalInput}
               onChange={onChangeInput}
               id="check"
             />
-            <button
-              type="submit"
-              className={clsx({
-                [Styles.check_btn]: true,
-              })}
-              disabled={!connected}
-            >
+            <button type="submit" className={Styles.check_btn}>
               Check
             </button>
           </form>
         </div>
         <div>
           <div className={Styles.display_user}>
+            <h5>Enter an address to get their stake details.</h5>
+
             {address}
-            <h1> {amount}</h1>
+            <h1> {amount === undefined ? "0" : ` ${amount} BRT`}</h1>
             {time}
+            {valid}
           </div>
         </div>
       </div>

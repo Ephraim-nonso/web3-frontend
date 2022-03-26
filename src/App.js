@@ -283,11 +283,11 @@ function App() {
     const stakeSeconds = Math.floor(newStakeTime.getTime() / 1000);
 
     // getting the current day in seconds
-    const currentDay = new Date();
-    const currentDaySeconds = Math.floor(currentDay.getTime() / 1000);
+    const presentDay = new Date();
+    const presentDayPerSeconds = Math.floor(presentDay.getTime() / 1000);
 
     // getting the difference between the lastest stake and the current day
-    const timeDifference = currentDaySeconds - stakeSeconds;
+    const timeDifference = presentDayPerSeconds - stakeSeconds;
 
     // showing reward after 3 days otherwise showing 0
     if (timeDifference >= 259200) {
