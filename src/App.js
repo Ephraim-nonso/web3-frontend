@@ -256,14 +256,12 @@ function App() {
       checkBalInput
     );
 
-    setUserDetails((userDetails) => [
-      ...userDetails,
-      {
-        amount: getByAddress[0],
-        address: getByAddress[1],
-      },
-    ]);
-    console.log(userDetails);
+    setUserDetails({
+      amount: utils.formatUnits(getByAddress.stakeAmount.toString(), 18),
+      address: getByAddress.staker,
+      time: formatDate(getByAddress.time.toString()),
+      valid: getByAddress.valid,
+    });
   };
 
   const getAndDisplayStake = async () => {
