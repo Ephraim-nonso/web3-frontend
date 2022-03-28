@@ -88,10 +88,13 @@ const MyStake = ({
           <div className={Styles.display_user}>
             <h5>Enter an address to get their stake details.</h5>
 
-            {address}
+            {amount === "0.0" ? checkBalInput : address}
             <h1> {amount === undefined ? "0" : ` ${amount} BRT`}</h1>
-            {time}
+            {amount === "0.0" ? null : time}
             {valid}
+            <div style={{ marginTop: "20px", fontWeight: "Bold" }}>
+              {amount === "0.0" ? "You're not a staker" : null}
+            </div>
           </div>
         </div>
       </div>
